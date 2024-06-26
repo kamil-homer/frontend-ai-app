@@ -6,8 +6,13 @@ import {
 
 export const TopNavigation = () => {
   return (
-    <Grid container justifyContent="space-between" alignItems="center">
-      <Typography>Account: 124131</Typography>
+    <Grid
+      container
+      justifyContent="space-between"
+      alignItems="center"
+      sx={{ marginBottom: '32px' }}
+    >
+      <Typography>Joe</Typography>
       <>
         <IconButton aria-label="delete" color="primary">
           <NotificationsNoneOutlined />
