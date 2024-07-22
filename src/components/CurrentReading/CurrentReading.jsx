@@ -8,7 +8,6 @@ export const CurrentReading = () => {
     const fetchBooks = async () => {
       const response = await fetch('https://freetestapi.com/api/v1/books')
       const books = await response.json()
-      console.log(books)
       setBooks(books)
     }
 
@@ -25,14 +24,11 @@ export const CurrentReading = () => {
         <Typography variant="h6" color="primary">
           Currently Reading
         </Typography>
-        <IconButton variant="contained" color="primary">
-          <Add />
-        </IconButton>
       </Grid>
       <Grid container justifyContent="space-between">
         <Grid item xs={6}>
           <img
-            src={books[0].cover_image}
+            src={books[0]?.cover_image}
             alt="book"
             style={{ width: '100% ' }}
           />
