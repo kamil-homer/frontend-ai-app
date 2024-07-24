@@ -12,11 +12,17 @@ describe('NewReadingForm', () => {
     const authorInput = screen.getByLabelText('Author')
     fireEvent.change(authorInput, { target: { value: 'John Doe' } })
 
-    screen.logTestingPlaygroundURL()
     const submitButton = screen.getByRole('button', {
       name: /add new reading/i,
     })
     await waitFor(() => fireEvent.click(submitButton))
+
+    const currentPageInput = screen.getByLabelText('Current page')
+    fireEvent.change(currentPageInput, { target: { value: 'page 15' } })
+    expect(screen.queryByDisplayValue('page 15')).not.toBeInTheDocument()
+
+    fireEvent.change(currentPageInput, { target: { value: '15' } })
+    expect(screen.queryByDisplayValue('15')).toBeInTheDocument()
 
     expect(screen.getByDisplayValue('My Favorite Book')).toBeInTheDocument()
   })
