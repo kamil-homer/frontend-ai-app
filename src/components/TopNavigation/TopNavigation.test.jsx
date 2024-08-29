@@ -1,11 +1,10 @@
-import { render, screen } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import { TopNavigation } from './TopNavigation'
-import { describe, it } from 'vitest'
+import { describe, expect, it } from 'vitest'
 
 describe('App', () => {
   it('renders the App component', () => {
-    render(<TopNavigation />)
-
-    screen.debug() // prints out the jsx in the App component unto the command line
+    const screen = render(<TopNavigation />)
+    expect(screen.getByText('Joe')).toBeInTheDocument()
   })
 })
